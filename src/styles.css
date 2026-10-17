@@ -1,1 +1,119 @@
-/* You can add global styles to this file, and also import other style files */
+
+/* =========================================
+   NEXORA — GLOBAL DESIGN SYSTEM
+   ========================================= */
+
+:root {
+  color-scheme: light;
+
+  /* Brand palette */
+  --color-purple-deep: #3A3550;
+  --color-purple: #585272;
+  --color-lavender: #8A82A6;
+  --color-lilac: #B7AFC9;
+  --color-mauve-light: #DCD3E0;
+  --color-white: #F4EFF3;
+
+  /* Semantic colors */
+  --color-background: #F4EFF3;
+  --color-surface: #FFFFFF;
+  --color-text-primary: #3A3550;
+  --color-text-secondary: #585272;
+  --color-text-muted: #8A82A6;
+  --color-border: #DCD3E0;
+  --color-focus: #8A82A6;
+
+  /* Gradients */
+  --gradient-brand: linear-gradient(
+    110deg,
+    #585272 0%,
+    #8A82A6 52%,
+    #B7AFC9 100%
+  );
+
+  --gradient-brand-hover: linear-gradient(
+    110deg,
+    #3A3550 0%,
+    #585272 55%,
+    #8A82A6 100%
+  );
+
+  --gradient-panel: linear-gradient(
+    145deg,
+    #3A3550 0%,
+    #302B45 55%,
+    #242035 100%
+  );
+
+  --gradient-light: linear-gradient(
+    145deg,
+    #FFFFFF 0%,
+    #F4EFF3 65%,
+    #EDE5F0 100%
+  );
+
+  /* Typography */
+  --font-family: "Inter", "Segoe UI", Arial, sans-serif;
+
+  /* Radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+
+  /* Shadows */
+  --shadow-card: 0 20px 60px rgb(58 53 80 / 9%);
+  --shadow-button: 0 10px 24px rgb(88 82 114 / 22%);
+
+  /* Transitions */
+  --transition-fast: 180ms ease;
+}
+
+/* Global reset */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+   font-family: Arial, sans-serif;
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-text-primary);
+  font-family: var(--font-family);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a {
+  color: inherit;
+}
+
+::selection {
+  color: var(--color-purple-deep);
+  background: var(--color-lilac);
+}
+
+:focus-visible {
+  outline-color: var(--color-focus);
+  outline-offset: 3px;
+}

@@ -1,0 +1,113 @@
+<div class="app-layout">
+  <!-- Mobile overlay -->
+  @if (isMobileMenuOpen) {
+    <div class="sidebar-overlay" (click)="toggleMobileMenu()"></div>
+  }
+
+  <!-- Sidebar -->
+  <aside class="sidebar" [class.collapsed]="isCollapsed" [class.mobile-open]="isMobileMenuOpen">
+    <div class="brand">
+      <div class="brand-icon">✦</div>
+      <span class="brand-name">FLOWRACK</span>
+
+      <button
+        class="collapse-btn"
+        type="button"
+        (click)="toggleSidebar()"
+        [attr.aria-label]="isCollapsed ? 'Expand sidebar' : 'Collapse sidebar'"
+      >
+        {{ isCollapsed ? '›' : '‹' }}
+      </button>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a
+        routerLink="/admin/Client-List"
+        routerLinkActive="active"
+        class="nav-link"
+        title="Dashboard"
+      >
+        <span class="nav-icon">⌂</span>
+        <span class="nav-label">Dashboard</span>
+      </a>
+
+      <button type="button" class="nav-link nav-parent" (click)="toggleClients()" title="Clients">
+        <span class="nav-icon">♧</span>
+        <span class="nav-label">Clients</span>
+        <span class="nav-arrow" [class.rotated]="isClientsExpanded">⌄</span>
+      </button>
+
+      @if (isClientsExpanded && !isCollapsed) {
+        <div class="submenu">
+          <a routerLink="/admin/Client-List" routerLinkActive="active" class="submenu-link">
+            <span class="submenu-dot"></span>
+            Client List
+          </a>
+
+          <a routerLink="/admin/Client-Form" routerLinkActive="active" class="submenu-link">
+            <span class="submenu-dot"></span>
+            Client Form
+          </a>
+        </div>
+      }
+
+      <a routerLink="/admin/Client-List" class="nav-link" title="Projects">
+        <span class="nav-icon">▱</span>
+        <span class="nav-label">Projects</span>
+      </a>
+
+      <button type="button" class="nav-link" title="Settings">
+        <span class="nav-icon">⚙</span>
+        <span class="nav-label">Settings</span>
+      </button>
+    </nav>
+    <div class="sidebar-decoration" aria-hidden="true">
+      <div class="glass-card glass-card-one"></div>
+      <div class="glass-card glass-card-two"></div>
+      <div class="glass-card glass-card-three">
+        <span>✦</span>
+      </div>
+    </div>
+
+    <div class="sidebar-footer">
+      <span class="footer-star">✦</span>
+      <span class="nav-label">Build · Collaborate · Grow</span>
+    </div>
+    <button class="logout-btn" type="button" (click)="logout()" title="Logout">
+      <span class="logout-icon">⇥</span>
+      <span class="nav-label">Logout</span>
+    </button>
+  </aside>
+
+  <!-- Main area -->
+  <main class="main-area">
+    <header class="topbar">
+      <button
+        class="mobile-menu-btn"
+        type="button"
+        (click)="toggleMobileMenu()"
+        aria-label="Open navigation"
+      >
+        ☰
+      </button>
+
+      <div class="breadcrumb">
+        <span class="breadcrumb-muted">Workspace</span>
+        <span>/</span>
+        <span class="breadcrumb-current">Admin Panel</span>
+      </div>
+
+      <div class="profile">
+        <div class="profile-avatar">A</div>
+        <div class="profile-info">
+          <strong>Admin User</strong>
+          <!-- <span>Administrator</span>-->
+        </div>
+      </div>
+    </header>
+
+    <section class="page-content">
+      <router-outlet></router-outlet>
+    </section>
+  </main>
+</div>
